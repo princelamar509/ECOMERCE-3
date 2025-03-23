@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
 import About from "./pages/About";
@@ -10,6 +10,7 @@ import { CartProvider } from "./context/CartProvider";  // ✅ Correct Name
 import NewArrivals from "./pages/NewArrivals";
 import Collections from "./pages/Collections";
 import CartPage from "./pages/CartPage";
+
 
 
 
