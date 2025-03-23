@@ -1,0 +1,374 @@
+/* SearchOverlay.css */
+/* Existing CSS remains the same */
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.search-container {
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 100px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #777;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+
+
+/* Animated placeholder icon in search overlay */
+.search-input-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  color: #777;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Subtle pulse animation for the search icon */
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Apply animation when search overlay is open */
+.search-overlay .search-icon {
+  animation: iconPulse 1.5s infinite ease-in-out;
+}
+
+/* Change color when input is focused */
+.search-input:focus + .search-icon,
+.search-input-wrapper:hover .search-icon {
+  color: #8e2de2;
+}
+
+/* Add smooth movement when input is focused */
+.search-input:focus ~ .search-icon {
+  animation: none;
+  transform: translateX(3px);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #777;
+  font-size: 16px;
+}
+
+
+/* Enhanced search icon styling */
+.icon-btn.search-toggle {
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-btn.search-toggle:hover {
+  color: #8e2de2;
+  transform: scale(1.15);
+}
+
+/* Add a subtle pulse effect */
+.icon-btn.search-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(142, 45, 226, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: -1;
+}
+
+.icon-btn.search-toggle:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Optional: Add a subtle bounce animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.icon-btn.search-toggle:active {
+  animation: bounce 0.4s ease;
+}
+/* Modified input styling to move placeholder to the right */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  font-size: 16px;
+  border: 2px solid #eee;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  text-align: right; /* Right-align text */
+}
+
+/* Right-align the placeholder */
+input[type="text"]::placeholder {
+  text-align: right;
+  color: #999;
+}
+
+/* When user starts typing, we want the text to be left-aligned for readability */
+/* Enhanced search input styling */
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  height: 54px;
+  padding: 10px 20px 10px 50px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f9fa;
+  border: 2px solid #eaeaea;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-right: 40px;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+  transition: opacity 0.3s ease;
+  font-size: 20px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #8e2de2;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.1);
+}
+
+.search-input:focus::placeholder {
+  opacity: 0.5;
+  
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  color: #999;
+  font-size: 18px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus ~ .search-icon,
+.search-input-wrapper:hover .search-icon {
+  color: #8e2de2;
+}
+
+
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.close-btn:hover {
+  background: #fff;
+  color: #e53e3e;
+  transform: rotate(90deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.close-btn:active {
+  transform: rotate(90deg) scale(0.9);
+}
+
+.close-btn svg {
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover svg {
+  stroke-width: 2px;
+}
+
+
+/* Add a clear button when text is entered */
+.search-input-wrapper .clear-input {
+  position: absolute;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+ 
+}
+
+.search-input:not(:placeholder-shown) ~ .clear-input {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.clear-input:hover {
+  color: #e53e3e;
+}
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-results h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.results-list li {
+  margin-bottom: 8px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.product-link {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 8px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.product-link:hover {
+  background-color: #f5f5f5;
+}
+
+.product-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.product-category {
+  color: #777;
+  margin: 0 15px;
+}
+
+.product-price {
+  font-weight: 600;
+  color: #8e2de2;
+}
+
+.no-results {
+  padding: 20px 0;
+  text-align: center;
+  color: #777;
+}
+
+/* Mobile styling */
+@media (max-width: 576px) {
+  .search-container {
+    width: 95%;
+    margin-top: 80px;
+    padding: 20px;
+  }
+  
+  .product-link {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .product-category {
+    margin: 0;
+    font-size: 14px;
+  }
+}
