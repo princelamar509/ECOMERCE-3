@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/shop.css";
-
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+const [addToCart, setAddToCart]= useState(false);
+const handleAddToCart = () => {
+  alert("This feature is currently unavailable");
+}
+
+addToCart && setAddToCart(false);
+
+
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products/category/men's clothing")
+    axios.get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
@@ -45,7 +52,7 @@ const Shop = () => {
               <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
               <p>${product.price}</p>
-              <button>Add to Cart</button>
+              <button onClick={handleAddToCart}>Add to Cart</button>
             </div>
           ))}
         </div>

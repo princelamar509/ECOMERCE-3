@@ -122,7 +122,8 @@ const CartPage = () => {
               <button className="clear-cart-btn" onClick={clearCart}>
                 Clear Cart
               </button>
-              <Link to="/shop" className="continue-shopping-btn">
+              {/* change below / to shop later  */}
+              <Link to="/" className="continue-shopping-btn">
                 <FaArrowLeft /> Continue Shopping
               </Link>
             </div>

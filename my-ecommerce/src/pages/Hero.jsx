@@ -360,7 +360,8 @@ const handleAddToCart = (product,event) => {
               <Link to="/shop" className="btn btn-primary">
                 Shop Now <FaArrowRight className="btn-icon" />
               </Link>
-              <Link to="/collections/new" className="btn btn-outline">
+              {/* update later to collections/new */}
+              <Link to="/newarrivals" className="btn btn-outline">
                 New Arrivals
               </Link>
             </motion.div>

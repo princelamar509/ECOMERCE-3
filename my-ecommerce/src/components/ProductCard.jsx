@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaCheck, FaHeart, FaEye } from "react-icons/fa";
+import { FaShoppingCart, FaCheck} from "react-icons/fa";
 import { CartContext } from "../context/CartProvider";  
 import "../styles/ProductCard.css";
 
